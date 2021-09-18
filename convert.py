@@ -24,7 +24,7 @@ def main():
             if ".svg" in f:
                 try:
                     mkdir(path=f"{root}/png/")
-                except OSError as error:
+                except OSError:
                     pass
                 convert_file = pyvips.Image.thumbnail(f"{root}/{f}", 52, height=52)
                 convert_file.write_to_file(f"{root}/png/{f.replace('svg', 'png')}")
